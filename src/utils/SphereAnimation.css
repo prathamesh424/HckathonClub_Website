@@ -1,0 +1,121 @@
+/* Variables (These are used directly in the CSS) */
+:root {
+    --radius: 300px;
+    --dotSize: 6px;
+    --spokesNum: 36;
+    --planesNum: 12;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #333;
+  }
+  
+  .main-wrapper {
+    display: flex;
+    position: absolute;
+    transform-style: preserve-3d;
+    perspective: 400px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sphere-wrapper {
+    transform-style: preserve-3d;
+    width: var(--radius);
+    height: var(--radius);
+    position: relative;
+    animation: rotate3d 10s linear infinite;
+  }
+  
+  .plane {
+    position: absolute;
+    transform-style: preserve-3d;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .spoke {
+    transform-origin: 0 0;
+    transform-style: preserve-3d;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: calc(var(--radius) / 2);
+    width: 0px;
+  }
+  
+  .dot {
+    position: absolute;
+    width: var(--dotSize);
+    height: var(--dotSize);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 1);
+    left: calc(-1 * var(--dotSize) / 2);
+    top: 100%;
+    transform: rotateX(90deg);
+  }
+  
+  /* Place Spokes */
+  .spoke.spoke-1 { transform: rotateZ(calc(360deg / var(--spokesNum) * 1)); }
+  .spoke.spoke-2 { transform: rotateZ(calc(360deg / var(--spokesNum) * 2)); }
+  .spoke.spoke-3 { transform: rotateZ(calc(360deg / var(--spokesNum) * 3)); }
+  /* Continue for each spoke... up to var(--spokesNum) */
+  
+  /* Place Planes */
+  .plane.plane-1 { transform: rotateY(calc(180deg / var(--planesNum) * 1)); }
+  .plane.plane-2 { transform: rotateY(calc(180deg / var(--planesNum) * 2)); }
+  .plane.plane-3 { transform: rotateY(calc(180deg / var(--planesNum) * 3)); }
+  /* Continue for each plane... up to var(--planesNum) */
+  
+  /* Animate Dots */
+  .spoke-1 .dot, .spoke-35 .dot {
+    animation: pulsate .5s infinite 0s alternate both;
+    background-color: hsl(calc(360deg / var(--spokesNum) * 1), 100%, 50%);
+  }
+  .spoke-2 .dot, .spoke-34 .dot {
+    animation: pulsate .5s infinite calc(1 / (var(--spokesNum) / 2))s alternate both;
+    background-color: hsl(calc(360deg / var(--spokesNum) * 2), 100%, 50%);
+  }
+  /* Continue for each animated dot... up to var(--spokesNum) / 2 */
+  
+  @keyframes rotate3d {
+    0% { transform: rotate3d(1, 1, 1, 0deg); }
+    25% { transform: rotate3d(1, 1, 1, 90deg); }
+    50% { transform: rotate3d(1, 1, 1, 180deg); }
+    75% { transform: rotate3d(1, 1, 1, 270deg); }
+    100% { transform: rotate3d(1, 1, 1, 360deg); }
+  }
+  
+  @keyframes pulsate {
+    0% { transform: rotateX(90deg) scale(.3) translateZ(20px); }
+    100% { transform: rotateX(90deg) scale(1) translateZ(0px); }
+  }
+  
+  .animista-badge {
+    font: normal 15px/1.5 sans-serif;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: rgba(255, 255, 255, .8);
+    padding: .5em 1em;
+  }
+  
+  a {
+    color: #ff6060;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
