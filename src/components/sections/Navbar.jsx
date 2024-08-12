@@ -161,8 +161,8 @@ const Navbar = () => {
         <NavItems>
             <NavLink href = "#About">About</NavLink>
             <NavLink href = "#Events">Events</NavLink>
-            <NavLink href = "#Team">Team</NavLink>
             <NavLink href = "#Memories">Memories</NavLink>
+            <NavLink href = "#Team">Team</NavLink>
             <NavLink href = "#Contact">Contact</NavLink>
         </NavItems>
 
@@ -171,8 +171,8 @@ const Navbar = () => {
             isOpen &&  <MobileMenu ref={menuRef} isOpen= {isOpen}>
                                 <NavLink href = "#About" onClick={handleLinkClick}>About</NavLink>
                                 <NavLink href = "#Events" onClick={handleLinkClick}>Events</NavLink>
-                                <NavLink href = "#Team" onClick={handleLinkClick}>Team</NavLink>
                                 <NavLink href = "#Memories" onClick={handleLinkClick}>Memories</NavLink>
+                                <NavLink href = "#Team" onClick={handleLinkClick}>Team</NavLink>
                                 <NavLink href = "#Contact" onClick={handleLinkClick}>Contact</NavLink>
                         </MobileMenu>          
         }

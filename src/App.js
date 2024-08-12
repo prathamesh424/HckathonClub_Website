@@ -46,8 +46,8 @@ function App() {
                 <Wrapper>
                     <About/>
                     <Event />
-                    <Team/>
                     <Memories/>
+                    <Team/>
                     <Contact/>
                 </Wrapper>
                

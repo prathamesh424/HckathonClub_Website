@@ -5,20 +5,25 @@ import bg from '../cards/pg.png' ;
 const Card = styled.div`
   width: 270px;
   height: 335px;
- 
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.card};
   cursor: pointer;
   border-radius: 25px;
-  box-shadow: 0 0 50px 4px rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   gap: 14px;
   transition: all 0.5s ease-in-out;
+  background: rgba(255, 255, 255, 0.05); /* Adjust the color and opacity */
+  border-radius: 10px;
+  box-shadow: 0 0 50px 4px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  margin: 10px;
   &:hover {
     background-color:inherit;
-    filter: brightness(1.1);
+    filter: brightness(1.2);
     box-shadow: 0 0 25px 3px rgb(255, 217, 0);
   }
 `;
@@ -27,7 +32,7 @@ const Image = styled.img`
   transform: scale(1);
   &:hover {
      transform: translateY(-10px) scale(1.3);
-     filter: drop-shadow(0 0 30px #0652DD);
+     filter: drop-shadow(0 0 35px #0652DD);
   } 
 `;
 const Details = styled.div`
