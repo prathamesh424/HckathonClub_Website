@@ -142,11 +142,11 @@ const Contact = () => {
                  collaborations, or any inquiries you may have. Looking forward to hearing from you!
                 </Desc>
                 <ContactForm ref={form} onSubmit={handleSubmit}>
-                    <ContactTitle>Email Me</ContactTitle>
+                    <ContactTitle>Email Us</ContactTitle>
                     <ContactInput type="email" placeholder="Your email" name="from_email" required />
                     <ContactInput type="text" placeholder="Your Name" name="from_name" required />
                     <ContactInput type="text" placeholder="Subject" name="subject" required />
-                    <ContactInputMassage placeholder="Message" name="message" rows={4} required />
+                    <ContactInputMassage placeholder="Message" name="message" rows={5} required />
                     <ContactButton type="submit">Send</ContactButton>
                 </ContactForm>
             </Wrapper>

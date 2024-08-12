@@ -8,7 +8,23 @@ const slide = keyframes`
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-10%);
+  }
+`;
+const mobileSlide = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+`;
+const tabSlide = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-70%);
   }
 `;
 
@@ -71,11 +87,9 @@ const SlidingContainer = styled.div`
   animation: ${slide} 15s linear infinite  ;
   width: calc(200% + 20px);  
   @media (max-width: 768px) {
-    animation: ${slide} 20s linear infinite  ;
-  }
- @media (max-width: 768px) {
+    animation: ${mobileSlide} 15s linear infinite  ;
     width: 100%;
-    max-width: 600px;
+    max-width: 450px;
      gap: 10px;
   }
   @media (max-width: 500px) {
@@ -83,7 +97,8 @@ const SlidingContainer = styled.div`
     max-width: 400px;
     gap: 7px;
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 1000px){
+    animation: ${tabSlide} 15s linear infinite  ;
     gap: 15px;
   }
   @media (max-width: 1200px) {
@@ -94,7 +109,7 @@ const SlidingContainer = styled.div`
 `;
 
 const Effect = styled.div`
-  flex: 0 0 auto; /* Prevent flex-grow and flex-shrink */
+  flex: 0 0 auto;  
   width: 600px;
   max-width: 700px;
   background-color: rgba(17, 25, 40, 0.83);
@@ -125,7 +140,7 @@ const Memories = () => {
       <Image src={memo1} alt="Memory 1" />
     </Effect>,
     <Effect key="2">
-      <Image src={memo2} alt="Memory 1" />
+      <Image src={memo2} alt="Memory 2" />
     </Effect>,
   ];
 

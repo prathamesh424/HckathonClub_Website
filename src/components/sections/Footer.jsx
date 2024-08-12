@@ -4,6 +4,8 @@ import {
   FacebookRounded,
   Instagram,
   LinkedIn,
+  WhatsApp,
+  X 
 } from "@mui/icons-material";
 
 const FooterContainer = styled.div`
@@ -92,13 +94,16 @@ const Footer = () => {
         </Nav>
         <SocialMediaIcons>
           <SocialMediaIcon href={""} target="display">
-            <FacebookRounded />
+            <WhatsApp  />
           </SocialMediaIcon>
           <SocialMediaIcon href={""} target="display">
             <LinkedIn />
           </SocialMediaIcon>
           <SocialMediaIcon href={""} target="display">
             <Instagram />
+          </SocialMediaIcon>
+          <SocialMediaIcon href={""} target="display">
+            <X />
           </SocialMediaIcon>
         </SocialMediaIcons>
         <Copyright>&copy; 2024 Hackathon Club . All rights reserved.</Copyright>

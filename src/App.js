@@ -7,6 +7,9 @@ import Memories from "./components/sections/Memories";
 import About from "./components/sections/About";
 import SphereAnimation from "./components/sections/spare";
 import Contact from "./components/sections/Contact";
+import Event from "./components/sections/Event";
+import TeamProfile from "./components/sections/Team";
+import Team from "./components/sections/Team";
 
 const Body = styled.div`
     background-color: ${({theme}) => theme.bg};
@@ -42,6 +45,8 @@ function App() {
               <div>
                 <Wrapper>
                     <About/>
+                    <Event />
+                    <Team/>
                     <Memories/>
                     <Contact/>
                 </Wrapper>

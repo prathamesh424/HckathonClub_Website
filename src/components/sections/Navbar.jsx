@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components' ;
-import {Link as LinkR,  } from 'react-router-dom';
 import {MenuRounded} from '@mui/icons-material'
-import logo from '../cards/Hackathon logo.png';
+import newLogo from '../cards/hackathonLogo.svg'
 
 const Nav = styled.div`
     background-color: ${({theme}) => theme.bg};
@@ -16,7 +15,6 @@ const Nav = styled.div`
     color:red ;
 `;
 
-
 const NavbarContainer = styled.div`
     width : 100% ;
     max-width : 1200px;
@@ -27,28 +25,24 @@ const NavbarContainer = styled.div`
     font-size: 1rem ;
 `;
 
-const NavLogo = styled(LinkR)`
+const NavLogo = styled.img`
     width : 80% ;
     padding: 0 6px ;
+    position: relative ;
+    align-items : start; 
+    flex-direction: column ;
+    flex: row ;
     color:inherit;
-     height: 60px;
+    height: 55px;
     border-radius: 10px;
     margin-top: 12px;
     padding: 0 6px ;
-    @media only screen and (max-width: 768px) {
-        height: 50px;
+    @media only screen and (max-width: 760px) {
+        height: 45px;
+        display :none ;
     }
 `;
 
-const LogoVideo = styled.video`
-    height: 60px;
-    border-radius: 10px;
-    margin-top: 12px;
-    padding: 0 6px ;
-    @media only screen and (max-width: 768px) {
-        height: 50px;
-    }
-`;
 
 const NavItems = styled.ul`
     display: flex; 
@@ -127,7 +121,6 @@ const MobileMenu = styled.ul`
     position : absolute ;
     top:80px ;
     right : 0 ;
-
     transition: all 0.6s ease-in-out ;
     transform : ${({isOpen}) => 
         isOpen ? "translateY(0)" : "translateY(-100%)"} ;
@@ -137,21 +130,30 @@ const MobileMenu = styled.ul`
         z-index: ${({isOpen}) => (isOpen ? "1000" : "-1000")};
 `;
 
-
-
-
-
-
 const Navbar = () => {
     const [isOpen , setIsOpen] = useState(false) ;
+    const handleLinkClick = () => {
+        setIsOpen(false);
+    };
+    const menuRef = useRef(null);
+    const handleClickOutside = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+            setIsOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
 
   return (
     <Nav>
     <NavbarContainer>
-        <NavLogo to="/"> 
-                 
-            {/* <LogoVideo src={""} autoPlay loop muted /> */}
-        </NavLogo>
+        <NavLogo src={newLogo} alt='clubLogo' />
         <MobileIcon  onClick={() => setIsOpen(!isOpen)}>
             <MenuRounded style={{color: 'inherit'}}/>
         </MobileIcon>
@@ -166,12 +168,12 @@ const Navbar = () => {
 
 
         {
-            isOpen &&   <MobileMenu isOpen= {isOpen}>
-                                <NavLink href = "#About">About</NavLink>
-                                <NavLink href = "#Events">Events</NavLink>
-                                <NavLink href = "#Team">Team</NavLink>
-                                <NavLink href = "#Memories">Memories</NavLink>
-                                <NavLink href = "#Contact">Contact</NavLink>
+            isOpen &&  <MobileMenu ref={menuRef} isOpen= {isOpen}>
+                                <NavLink href = "#About" onClick={handleLinkClick}>About</NavLink>
+                                <NavLink href = "#Events" onClick={handleLinkClick}>Events</NavLink>
+                                <NavLink href = "#Team" onClick={handleLinkClick}>Team</NavLink>
+                                <NavLink href = "#Memories" onClick={handleLinkClick}>Memories</NavLink>
+                                <NavLink href = "#Contact" onClick={handleLinkClick}>Contact</NavLink>
                         </MobileMenu>          
         }
 
