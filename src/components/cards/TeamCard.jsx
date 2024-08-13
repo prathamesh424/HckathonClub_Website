@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import bg from '../cards/pg.png' ;
+
  
 const Card = styled.div`
   width: 270px;
@@ -31,7 +31,7 @@ const Image = styled.img`
   width: 180px;
   transform: scale(1);
   &:hover {
-     transform: translateY(-10px) scale(1.3);
+     transform: translateY(-20px) scale(1.3);
      filter: drop-shadow(0 0 35px #0652DD);
   } 
 `;
@@ -59,12 +59,13 @@ const Role = styled.div`
     font-size: 20px;
     font-weight: 600;
     color: red ;
+    
 `;
 
 const TeamCard = ({member}) => {
   return (
     <Card>
-        <Image src={bg}/>
+        <Image src={member.image} alt = 'logo'/>
         <Details>
             <Role>{member.role}</Role>
             <Name>{member.name}</Name>

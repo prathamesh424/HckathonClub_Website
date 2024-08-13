@@ -4,12 +4,10 @@ import { BrowserRouter} from "react-router-dom";
 import Navbar from "./components/sections/Navbar";
 import Footer from "./components/sections/Footer";
 import Memories from "./components/sections/Memories";
-import About from "./components/sections/About";
-import SphereAnimation from "./components/sections/spare";
+import About from "./components/sections/About"; 
 import Contact from "./components/sections/Contact";
 import Event from "./components/sections/Event";
-import TeamProfile from "./components/sections/Team";
-import Team from "./components/sections/Team";
+import Team from "./components/sections/Team"; 
 
 const Body = styled.div`
     background-color: ${({theme}) => theme.bg};
@@ -38,7 +36,7 @@ const Wrapper = styled.div`
 
 function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={darkTheme}>  
         <BrowserRouter>
           <Navbar/>
           <Body>
@@ -50,13 +48,9 @@ function App() {
                     <Team/>
                     <Contact/>
                 </Wrapper>
-               
               </div>
               <Footer/>
           </Body> 
-          <div>
-          {/* <SphereAnimation/> */}
-          </div>
         </BrowserRouter>
     </ThemeProvider>
   );

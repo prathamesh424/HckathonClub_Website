@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
 import TeamCard from '../cards/TeamCard';
-
+import sg from '../images/sg.png'
+import bg from  '../images/pg.png';
 
 const Container = styled.div`
     display: flex ;
@@ -47,10 +48,32 @@ const CardContainer = styled.div`
     flex-wrap: wrap;
 `;
 const Team = () => {
-    const member  = {
-        image: '../cards/pg.png' , 
+    const leader  = {
+        image: bg , 
+        name: 'Rahul Gawade', 
+        role : 'President' 
+    }
+    const member1  = {
+        image: bg , 
+        name: 'Aditya Bhavar', 
+        role : 'Technical Head'  
+    }
+    const member2  = {
+       
+        image: bg , 
+        name: 'Siddharth Basale', 
+        role : 'Management Head'
+    }
+    const member3  = {
+        
+        image: bg , 
         name: 'Prathamesh Gursal', 
-        role : 'Developer' 
+        role : 'Management Head' 
+    }
+    const member4  = {
+        image: sg , 
+        name: 'Sushil Phadtare', 
+        role : 'Socialmedia Head' 
     }
 
   return (
@@ -58,16 +81,16 @@ const Team = () => {
         <Title>Team</Title>
         <Wrapper>
             <CardContainer>
-                <TeamCard member={member}/>
+                <TeamCard member={leader}/>
             </CardContainer>
         </Wrapper>
 
         <Wrapper>
             <CardContainer>
-                 <TeamCard member={member}/>
-                 <TeamCard member={member}/>
-                 <TeamCard member={member}/>
-                 <TeamCard member={member}/>
+                 <TeamCard member={member1}/>
+                 <TeamCard member={member2}/>
+                 <TeamCard member={member3}/>
+                 <TeamCard member={member4}/>
             </CardContainer>
         </Wrapper>
     </Container>

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import memo1 from '../cards/Screenshot_1-8-2024_12812_leetcode.com.jpeg';
-import memo2 from '../cards/coverImage.webp'
+
 
 const slide = keyframes`
   0% {
@@ -137,10 +136,10 @@ const Image = styled.img`
 const Memories = () => {
   const effects = [
     <Effect key="1">
-      <Image src={memo1} alt="Memory 1" />
+      <Image src='https://wallup.net/wp-content/uploads/2019/09/612519-landscape-nature-beautiful-forest-area-wild-sky-landscapes.jpg' alt="Memory 1" />
     </Effect>,
     <Effect key="2">
-      <Image src={memo2} alt="Memory 2" />
+      <Image src='https://wallpaperaccess.com/full/3246081.jpg' alt="Memory 2" />
     </Effect>,
   ];
 
@@ -152,7 +151,7 @@ const Memories = () => {
         <MemoryContainer>
           <SlidingContainer>
             {effects}
-            {effects} {/* Duplicate images for seamless looping */}
+            {effects}  
           </SlidingContainer>
         </MemoryContainer>
       </Wrapper>

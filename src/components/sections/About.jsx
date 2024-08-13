@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import Typewriter from 'typewriter-effect';
-import { Tilt } from 'react-tilt';
+import Typewriter from 'typewriter-effect'; 
 import { motion } from 'framer-motion';
 import { headContainerAnimation, headContentAnimation, headTextAnimation } from '../../utils/motion';
-import newLogo from '../cards/hackathonLogo.svg';
+import logo from '../images/hackathonLogo.svg' ;
+import HeroBgAnimation from '../backgroundAnimation'
+import StarCanvas from "../canvas/Stars";
 
 const MainContainer = styled.div`
   display: flex;
@@ -151,7 +152,8 @@ const About = () => {
     <div id='About'>
       <MainContainer>
         <Background>
-          {/* <HeroBgAnimation/> */}
+          <StarCanvas />
+          <HeroBgAnimation />
         </Background>
 
         <motion.div {...headContainerAnimation}>
@@ -183,11 +185,8 @@ const About = () => {
 
             <ImageContainer>
               <div id="maskparent">
-                <Img src={newLogo} id="mask" alt="Hackathon Club" />
+                <Img src={logo} id="mask" alt="Hackathon Club" />
               </div>
-              {/* <motion.div {...headContentAnimation} >
-               
-              </motion.div> */}
             </ImageContainer>
           </InnerContainer>
         </motion.div>

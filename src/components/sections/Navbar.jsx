@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components' ;
 import {MenuRounded} from '@mui/icons-material'
-import newLogo from '../cards/hackathonLogo.svg'
+import logo from '../images/hackathonLogo.svg'
 
 const Nav = styled.div`
     background-color: ${({theme}) => theme.bg};
@@ -153,7 +153,7 @@ const Navbar = () => {
   return (
     <Nav>
     <NavbarContainer>
-        <NavLogo src={newLogo} alt='clubLogo' />
+        <NavLogo src={logo} alt='clubLogo' />
         <MobileIcon  onClick={() => setIsOpen(!isOpen)}>
             <MenuRounded style={{color: 'inherit'}}/>
         </MobileIcon>
