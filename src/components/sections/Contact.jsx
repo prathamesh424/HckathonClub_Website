@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
 import emailjs from '@emailjs/browser'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Container = styled.div`
     display: flex;
@@ -8,6 +10,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 50px;
+    margin-bottom: 30px ;
 `;
 
 const Wrapper = styled.div`
@@ -39,10 +42,20 @@ const Title = styled.div`
 const Desc = styled.div`
     font-size: 18px;
     text-align: center;
+    font-family : Poppins ;
     font-weight: 500;
+    margin: 10px ;
     color: ${({ theme }) => theme.text_secondary};
-    @media (max-width: 768px) {
+    @media (max-width: 980px) {
         font-size: 16px;
+    }
+    @media (max-width: 768px) {
+        font-size: 15px;
+    }
+    }
+    @media (max-width: 350px) {
+        font-size: 12px;
+        padding: 10px ;
     }
 `;
 
@@ -103,7 +116,7 @@ const ContactButton = styled.button`
     padding: 13px 16px;
     margin-top: 2px;
     border-radius: 12px;
-    cursor: pointer;
+    
     border: none;
     color: ${({ theme }) => theme.text_primary};
     font-size: 18px;
@@ -116,19 +129,18 @@ const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         emailjs.sendForm(
-            'service_id',
-            'template_id',
+            'service_ah787y9',
+            'template_05nuzfd',
             form.current,
-            {publicKey: ''}
+            {publicKey: 'Lrf2MtbnL9uN0s4mK'}
         )
-        
         .then(
             (result) => {
-                alert("Thank you , we will contact you soon....");
+                toast.success("Thank you, we will contact you soon...");
                 form.current.reset(); 
             },
             (error) => {
-                alert(error);
+                toast.error("Error while connecting to Admin, try again later!!!");
             }
         );
     };
@@ -138,7 +150,7 @@ const Contact = () => {
             <Wrapper>
                 <Title>Contact</Title>
                 <Desc>
-                Feel free to reach out to me using the form below. We eager to connect and discuss opportunities,
+                Feel free to reach out to us using the form below. We are eager to connect and discuss opportunities,
                  collaborations, or any inquiries you may have. Looking forward to hearing from you!
                 </Desc>
                 <ContactForm ref={form} onSubmit={handleSubmit}>
@@ -149,6 +161,7 @@ const Contact = () => {
                     <ContactInputMassage placeholder="Message" name="message" rows={5} required />
                     <ContactButton type="submit">Send</ContactButton>
                 </ContactForm>
+                <ToastContainer />
             </Wrapper>
         </Container>
     );

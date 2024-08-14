@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
 import EventCard from '../cards/EventCard';
+import sih24 from '../images/sih24.jpg'
+import webwiz from '../images/webw.jpg'
  
 const Container = styled.div`
     display: flex ;
@@ -51,16 +53,16 @@ const CardContainer = styled.div`
 
 const Event = () => {
     const event  = {
-        image: "https://img.freepik.com/free-vector/hackathon-isometric-landing-software-development_107791-2942.jpg?semt=ais_hybrid" , 
+        image: webwiz , 
         name: 'WebWizard`s', 
         date : '23-08-2024' ,
-        link : true
+        link : "https://unstop.com/p/presenting-webwizards-10-web-dev-hackathon-hackathonclub-gcoeara-1122989?lb=WKVtL2Fv&utm_medium=Share&utm_source=shortUrl"
     }
     const event1  = {
-        image: "https://bkbiet.ac.in/wp-content/uploads/2020/01/banner_SIH2019_1.png" , 
-        name: 'Smart India Hackathon', 
+        image: sih24, 
+        name: 'Internal SIH-2024', 
         date : '06-09-2024' ,
-        link : false
+        link : "https://forms.gle/J639ZdZJFG7wUqSu5"
     }
 
   return (
@@ -69,10 +71,7 @@ const Event = () => {
             <Title>Events</Title>
             <CardContainer>
                 <EventCard event={event}/>
-                <EventCard event={event}/>
-                <EventCard event={event}/>
-                <EventCard event={event1}/>
-                <EventCard event={event1}/>
+
                 <EventCard event={event1}/>
             </CardContainer>
         </Wrapper>

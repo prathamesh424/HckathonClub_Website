@@ -1,8 +1,15 @@
 import React from 'react'
 import styled from 'styled-components';
 import TeamCard from '../cards/TeamCard';
-import sg from '../images/sg.png'
-import bg from  '../images/pg.png';
+
+import rg from '../images/Rahul.png';
+import pg from '../images/profile-removebg-preview.png';
+import ag from '../images/IMG_20231108_222822_867-removebg-preview.png' ; 
+import sidg from '../images/sidpg-removebg-preview.png';
+import sg from '../images/sushilLogo-removebg-preview.png';
+ 
+
+ 
 
 const Container = styled.div`
     display: flex ;
@@ -49,24 +56,24 @@ const CardContainer = styled.div`
 `;
 const Team = () => {
     const leader  = {
-        image: bg , 
+        image: rg , 
         name: 'Rahul Gawade', 
         role : 'President' 
     }
     const member1  = {
-        image: bg , 
+        image: ag , 
         name: 'Aditya Bhavar', 
         role : 'Technical Head'  
     }
     const member2  = {
        
-        image: bg , 
+        image: sidg , 
         name: 'Siddharth Basale', 
         role : 'Management Head'
     }
     const member3  = {
         
-        image: bg , 
+        image: pg , 
         name: 'Prathamesh Gursal', 
         role : 'Management Head' 
     }

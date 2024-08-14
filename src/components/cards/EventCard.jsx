@@ -5,7 +5,6 @@ const Card = styled.div`
   width: 330px;
   height: 330px;
   background-color: ${({ theme }) => theme.card};
-  cursor: pointer;
   border-radius: 10px;
   box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
   overflow: hidden;
@@ -35,7 +34,7 @@ const Details = styled.div`
   padding: 0px 2px;
 `;
 const Name = styled.div`
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 700;
   color: ${({ theme }) => theme.text_primary};
   overflow: hidden;
@@ -46,6 +45,7 @@ const Button = styled.a`
   color: ${({ theme }) => theme.primary};
   text-decoration: none;
   font-weight: 600;
+  font-size : 25px ;
   text-align: center;
 `;
 const Date = styled.div`
@@ -56,11 +56,12 @@ const Date = styled.div`
   }
 `;
 const Span = styled.span`
-    font-size: 12px;
-    font-weight: 200;
+    font-size: 18px;
+    font-weight: 500;
 `;
 
 const Text = styled.div`
+  font-size: 22px; 
    color: ${({ theme }) => theme.primary};
 `
 
@@ -70,7 +71,7 @@ const EventCard = ({event}) => {
     <Card>
         <Image src={event.image}/>
         <Details>
-              <Name>
+              <Name > 
                   <div className="event-container">
                     <Span>{event.name}</Span>
                   </div>
@@ -78,7 +79,7 @@ const EventCard = ({event}) => {
             <Date>{event.date}</Date>
         </Details>
          { event.link ? 
-              <Button href={"google form"} target="_blank">
+              <Button href={event.link} target="_blank">
                   Apply
               </Button> :
                <Text>

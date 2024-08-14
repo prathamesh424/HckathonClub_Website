@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Typewriter from 'typewriter-effect'; 
 import { motion } from 'framer-motion';
 import { headContainerAnimation, headContentAnimation, headTextAnimation } from '../../utils/motion';
-import logo from '../images/hackathonLogo.svg' ;
+import logo from '../images/hackathonLogo.svg'
 import HeroBgAnimation from '../backgroundAnimation'
 import StarCanvas from "../canvas/Stars";
 
@@ -21,6 +21,10 @@ const MainContainer = styled.div`
   @media (max-width: 640px) {
     padding: 32px 16px;
   }
+  @media (max-width: 450px) {
+    padding: 28px 14px;
+
+  }
   clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 95%, 0 100%);
 `;
 
@@ -32,16 +36,15 @@ const InnerContainer = styled.div`
   align-items: center;
   width: 100%;
   max-width: 100%;
-  
   @media (max-width: 960px) {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
 const TextContainer = styled.div`
-  width: 100%;
-  max-width: 
-
+  width: 100% ;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,7 +57,6 @@ const TextContainer = styled.div`
     justify-content: center;
   }
 `;
-
 const Title = styled.div`
   font-weight: 700;
   font-size: 50px;
@@ -77,14 +79,14 @@ const TextLoop = styled.div`
   gap: 12px;
   @media(max-width: 960px) {
     text-align: center;
-    font-size: 22px;
-    line-height: 48px;
-    margin-bottom: 16px;
+    justify-content:center;
+    font-size: 20px;
+    line-height: 45px;
+    margin-bottom: 15px;
   }
 `;
 
 const Span = styled.div`
-  cursor: pointer;
   color: red;
   display: flex;
   justify-content: center;
@@ -97,6 +99,7 @@ const SubTitle = styled.div`
   margin-bottom: 42px;
   color: ${({ theme }) => theme.text_primary + 95};
   @media(max-width: 960px) {
+    font-family : Poppins ;
     text-align: center;
     font-size: 16px;
     line-height: 32px;
@@ -147,6 +150,16 @@ const Background = styled.div`
   max-width: 1360px;
 `;
 
+const ClubTitle = styled.div`
+  font-family: Poppins ;
+  font-size:65px ;
+  @media (max-width: 640px) {
+    margin: 5px ;
+    font-size:50px ;
+    font-weight:800 ;
+  }
+`;
+
 const About = () => {
   return (
     <div id='About'>
@@ -155,20 +168,19 @@ const About = () => {
           <StarCanvas />
           <HeroBgAnimation />
         </Background>
-
         <motion.div {...headContainerAnimation}>
           <InnerContainer>
             <TextContainer>
               <motion.div {...headTextAnimation}>
                 <Title>
-                  Welcome to <br />
-                  <div className="text-container">
+                  Welcome To <br />
+                  <ClubTitle className="text-container">
                     <span> HACKATHON CLUB </span>
-                  </div>
+                  </ClubTitle>
                 </Title>
                 <TextLoop>
                   <Span>
-                    <Typewriter
+                    <Typewriter  
                       options={{
                         strings: ["Code |Collaborate |Conquer"],
                         autoStart: true,
@@ -179,7 +191,7 @@ const About = () => {
                 </TextLoop>
               </motion.div>
               <motion.div {...headContentAnimation}>
-                <SubTitle>intro about sub topic</SubTitle>
+                <SubTitle> </SubTitle>
               </motion.div>
             </TextContainer>
 
@@ -191,8 +203,6 @@ const About = () => {
           </InnerContainer>
         </motion.div>
       </MainContainer>
-
-      <div></div>
     </div>
   );
 };

@@ -1,0 +1,53 @@
+/* cursor.css */
+#cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #f260ffb8;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: width 0.2s, height 0.2s;
+    box-shadow: 0 0 15px #885dd3b7; /* Glowing effect */
+    animation: colorChange 2s infinite, scaleUp 0.5s infinite;
+  }
+  
+  .particle {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #232222b7;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9998;
+    opacity: 0;
+    box-shadow: 0 0 10px #5200e0b7; 
+    animation: particleAnimation 1s forwards;
+  }
+  
+  body {
+    cursor: none;
+  }
+  
+  @keyframes colorChange {
+    0% { background: rgba(226, 60, 60, 0.703); }  
+    25% { background: rgba(31, 236, 188, 0.8); }  
+    50% { background: rgba(136, 136, 223, 0.53); }  
+    75% { background: rgba(239, 239, 65, 0.721); }  
+    100% { background: #aa48ffa9; }  
+  }
+  
+  @keyframes scaleUp {
+    0% { transform: translate(-50%, -50%) scale(0.7); }
+    50% { transform: translate(-50%, -50%) scale(0.9); }
+    100% { transform: translate(-50%, -50%) scale(0.7); }
+  }
+  
+  @keyframes particleAnimation {
+    0% { transform: translate(-50%, -50%) scale(0.7); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  }
+  

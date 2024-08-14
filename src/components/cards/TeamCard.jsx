@@ -1,13 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
-
- 
+import styled from 'styled-components' 
 const Card = styled.div`
   width: 270px;
   height: 335px;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
   border-radius: 25px;
   display: flex;
   flex-direction: column;
@@ -21,6 +18,7 @@ const Card = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 20px;
   margin: 10px;
+  transition: all 0.5s ease-in-out;
   &:hover {
     background-color:inherit;
     filter: brightness(1.2);
@@ -30,6 +28,7 @@ const Card = styled.div`
 const Image = styled.img`
   width: 180px;
   transform: scale(1);
+  transition: all 0.5s ease-in-out;
   &:hover {
      transform: translateY(-20px) scale(1.3);
      filter: drop-shadow(0 0 35px #0652DD);

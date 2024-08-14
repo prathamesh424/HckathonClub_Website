@@ -99,8 +99,7 @@ const MobileIcon = styled.div`
     display : none  ;
     @media screen and (max-width : 760px){
         display: block;
-    }
-    cursor: pointer; 
+    } 
 `;
 
 const MobileMenu = styled.ul`
@@ -147,7 +146,7 @@ const Navbar = () => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []);
+    },[ ]);
 
 
   return (
@@ -155,7 +154,7 @@ const Navbar = () => {
     <NavbarContainer>
         <NavLogo src={logo} alt='clubLogo' />
         <MobileIcon  onClick={() => setIsOpen(!isOpen)}>
-            <MenuRounded style={{color: 'inherit'}}/>
+            <MenuRounded style={{color: 'inherit' , fontSize: '25px'}}/>
         </MobileIcon>
 
         <NavItems>
