@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled, { ThemeProvider } from "styled-components";
-import { darkTheme } from "./utils/Themes";
+import { darkTheme} from "./utils/Themes";
 import { BrowserRouter } from "react-router-dom";
 import Navbar from "./components/sections/Navbar";
 import Footer from "./components/sections/Footer";

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import EventCard from '../cards/EventCard';
-import sih24 from '../images/sih24.jpg'
+import sih24 from '../images/SIH2k24.png'
 import webwiz from '../images/webw.jpg'
  
 const Container = styled.div`
@@ -56,7 +56,7 @@ const Event = () => {
         image: webwiz , 
         name: 'WebWizard`s', 
         date : '23-08-2024' ,
-        link : "https://unstop.com/p/presenting-webwizards-10-web-dev-hackathon-hackathonclub-gcoeara-1122989?lb=WKVtL2Fv&utm_medium=Share&utm_source=shortUrl"
+        status: 'Completed'
     }
     const event1  = {
         image: sih24, 

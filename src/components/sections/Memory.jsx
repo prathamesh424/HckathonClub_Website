@@ -15,8 +15,6 @@ import img2 from '../images/interclghc.jpeg'
 import img3 from '../images/DSAguide.jpeg'
 import img4 from '../images/Faculty.jpeg'
 import img5 from '../images/codecompitition.jpeg'
- 
-
 
 
 const Container = styled.div`

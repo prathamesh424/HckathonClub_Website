@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { MenuRounded } from '@mui/icons-material';
-import logo from '../images/hackathonLogo.svg';
+import logo from '../images/logoclub.svg';
 
 const Nav = styled.div`
     background-color: ${({ theme }) => theme.bg};

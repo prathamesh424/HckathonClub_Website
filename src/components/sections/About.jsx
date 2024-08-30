@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Typewriter from 'typewriter-effect'; 
 import { motion } from 'framer-motion';
 import { headContainerAnimation, headContentAnimation, headTextAnimation } from '../../utils/motion';
-import logo from '../images/hackathonLogo.svg'
+import logo from '../images/logoclub.svg'
 import HeroBgAnimation from '../backgroundAnimation'
 import StarCanvas from "../canvas/Stars";
 

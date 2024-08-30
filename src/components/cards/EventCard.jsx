@@ -50,7 +50,9 @@ const Button = styled.a`
 `;
 const Date = styled.div`
   margin-left: 7px;
-  color: ${({ theme }) => theme.text_secondary + 80};
+  font-family: sans-serif;
+  font-weight: bold;
+  color: ${({ theme }) => theme.text_secondary + 97};
   @media only screen and (max-width: 768px) {
     font-size: 10px;
   }
@@ -63,6 +65,10 @@ const Span = styled.span`
 const Text = styled.div`
   font-size: 22px; 
    color: ${({ theme }) => theme.primary};
+`
+const Complete = styled.div`
+  font-size: 22px; 
+   color: green;
 `
 
 
@@ -82,9 +88,13 @@ const EventCard = ({event}) => {
               <Button href={event.link} target="_blank">
                   Apply
               </Button> :
+             ( event.status ? 
+               <Complete >
+                  {event.status}
+               </Complete> :
                <Text>
                   Comming Soon...
-               </Text>
+               </Text>)
          }
         
     </Card>

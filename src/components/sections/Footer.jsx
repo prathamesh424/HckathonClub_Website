@@ -29,6 +29,7 @@ const FooterWrapper = styled.div`
 const Logo = styled.div`
   font-weight: 600;
   font-size: 25px;
+  cursor: none;
   color: ${({ theme }) => theme.primary};
 `;
 const Nav = styled.ul`
@@ -49,6 +50,7 @@ const Nav = styled.ul`
 const NavLink = styled.a`
   color: ${({ theme }) => theme.text_primary};
   text-decoration: none;
+    cursor: none ;
   font-size: 2rem;
   transition: color 0.2s ease-in-out;
   &:hover {
@@ -66,6 +68,7 @@ const SocialMediaIcon = styled.a`
   display: inline-block;
   margin: 0 1rem;
   font-size: 2rem;
+  cursor: none ;
   color: ${({ theme }) => theme.text_primary};
   transition: color 0.2s ease-in-out;
   &:hover {
@@ -101,7 +104,7 @@ const Footer = () => {
           <SocialMediaIcon href={"https://www.instagram.com/hackathon_gcoeara?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="} target="display">
             <Instagram style={{  fontSize: '25px'}}/>
           </SocialMediaIcon>
-          <SocialMediaIcon href={"https://chat.whatsapp.com/GOyeFOmxXBy32tdIGuKKtu"} target="display">
+          <SocialMediaIcon href={"https://x.com/HackaThon_Club"} target="display">
             <X style={{  fontSize: '25px'}}/>
           </SocialMediaIcon>
         </SocialMediaIcons>

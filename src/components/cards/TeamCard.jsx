@@ -36,7 +36,7 @@ const Image = styled.img`
 `;
 const Details = styled.div`
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   width: 100%;
   display: flex;
   flex-direction: column;

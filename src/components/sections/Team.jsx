@@ -1,15 +1,12 @@
 import React from 'react'
 import styled from 'styled-components';
 import TeamCard from '../cards/TeamCard';
-
 import rg from '../images/Rahul.png';
-import pg from '../images/profile-removebg-preview.png';
-import ag from '../images/IMG_20231108_222822_867-removebg-preview.png' ; 
-import sidg from '../images/sidpg-removebg-preview.png';
-import sg from '../images/sushilLogo-removebg-preview.png';
- 
+import pg from '../images/prathamesh.png';
+import ag from '../images/aditya.png' ; 
+import sg from '../images/siddharth.png';
+import shg from '../images/sushil.png'
 
- 
 
 const Container = styled.div`
     display: flex ;
@@ -58,18 +55,18 @@ const Team = () => {
     const leader  = {
         image: rg , 
         name: 'Rahul Gawade', 
-        role : 'President' 
+        role : 'President', 
     }
     const member1  = {
-        image: ag , 
-        name: 'Aditya Bhavar', 
-        role : 'Technical Head'  
+        image: sg , 
+        name: 'Siddharth Basale', 
+        role : 'Vice President' 
+        
     }
     const member2  = {
-       
-        image: sidg , 
-        name: 'Siddharth Basale', 
-        role : 'Management Head'
+        image: ag , 
+        name: 'Aditya Bhavar', 
+        role : 'Technical Head' 
     }
     const member3  = {
         
@@ -78,7 +75,7 @@ const Team = () => {
         role : 'Management Head' 
     }
     const member4  = {
-        image: sg , 
+        image: shg , 
         name: 'Sushil Phadtare', 
         role : 'Socialmedia Head' 
     }
