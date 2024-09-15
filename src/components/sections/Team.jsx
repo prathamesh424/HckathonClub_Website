@@ -49,8 +49,9 @@ const CardContainer = styled.div`
 const Team = () => {
     const [teamData, setTeamData] = useState(null);
 
+    const link = process.env.REACT_APP_SERVER ;
     useEffect(() => {
-        fetch('https://gist.githubusercontent.com/prathamesh424/6679fbd960285e8bd12015a78130b76e/raw/HackathonClub.json') 
+        fetch(link) 
         .then((response) => response.json())
         .then((data) => {
             setTeamData(data.HackathonClub.team); 

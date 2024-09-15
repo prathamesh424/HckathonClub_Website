@@ -53,10 +53,11 @@ const Event = () => {
     const [events, setEvents] = useState([]);
     const [error, setError] = useState(null);
 
+    const link = process.env.REACT_APP_SERVER ;
      useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const response = await fetch('https://gist.githubusercontent.com/prathamesh424/6679fbd960285e8bd12015a78130b76e/raw/HackathonClub.json');
+                const response = await fetch(link);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }

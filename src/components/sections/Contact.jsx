@@ -125,14 +125,17 @@ const ContactButton = styled.button`
 
 const Contact = () => {
     const form = useRef();
-
+    const serviceId = process.env.REACT_APP_SIRVICEID ;
+    const templateId = process.env.REACT_APP_TEMPLATEID ;
+    const apiKey = process.env.REACT_APP_APIKEY ;
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         emailjs.sendForm(
-            'service_ah787y9',
-            'template_05nuzfd',
+            serviceId,
+            templateId,
             form.current,
-            {publicKey: 'Lrf2MtbnL9uN0s4mK'}
+            {publicKey: apiKey}
         )
         .then(
             (result) => {

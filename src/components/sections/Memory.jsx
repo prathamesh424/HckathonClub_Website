@@ -91,9 +91,10 @@ const Caption = styled.div`
 
 function Memory() {
   const [memories, setMemories] = useState([]);
-
+  const link = process.env.REACT_APP_SERVER ;
+  
   useEffect(() => {
-    fetch('https://gist.githubusercontent.com/prathamesh424/6679fbd960285e8bd12015a78130b76e/raw/HackathonClub.json') 
+    fetch( link) 
       .then((response) => response.json())
       .then((data) => {
         setMemories(data.HackathonClub.memories); 

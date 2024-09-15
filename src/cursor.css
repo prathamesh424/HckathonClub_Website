@@ -1,4 +1,4 @@
-/* cursor.css */
+ 
 #cursor {
     position: fixed;
     width: 20px;
@@ -10,7 +10,7 @@
     z-index: 9999;
     mix-blend-mode: difference;
     transition: width 0.2s, height 0.2s;
-    box-shadow: 0 0 15px #885dd3b7; /* Glowing effect */
+    box-shadow: 0 0 15px #885dd3b7;  
     animation: colorChange 2s infinite, scaleUp 0.5s infinite;
   }
   
