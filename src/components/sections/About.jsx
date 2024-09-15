@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { headContainerAnimation, headContentAnimation, headTextAnimation } from '../../utils/motion';
 import logo from '../images/logoclub.svg'
 import HeroBgAnimation from '../backgroundAnimation'
-import StarCanvas from "../canvas/Stars";
+import StarCanvas from "../canvas/Stars.jsx";
 
 const MainContainer = styled.div`
   display: flex;

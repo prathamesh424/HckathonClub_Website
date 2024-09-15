@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -8,19 +8,12 @@ import 'swiper/css/navigation';
 import './memory.css';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 
-
-import img1 from '../images/inoguration.jpeg'
-import img6 from '../images/painting.jpg'
-import img2 from '../images/interclghc.jpeg'
-import img3 from '../images/DSAguide.jpeg'
-import img4 from '../images/Faculty.jpeg'
-import img5 from '../images/codecompitition.jpeg'
-
-
 const Container = styled.div`
   max-width: 124rem;
   margin: 0 auto;
+  margin-top: 30px;
 `;
+
 const Title = styled.h1`
   font-size: 6rem;
   text-align: center;
@@ -33,6 +26,7 @@ const Title = styled.h1`
     font-size: 4.5rem;
   }
 `;
+
 const Desc = styled.p`
   font-size: 1.8rem;
   text-align: center;
@@ -72,8 +66,43 @@ const Image = styled.img`
   border-radius: 25px;
 `;
 
+const Caption = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: ${({ theme }) => theme.text_secondary};
+  text-align: center;
+  font-size: 1.5rem;
+  @media (max-width: 980px) {
+   border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+    padding : 22px ;
+  }
+  @media (max-width: 450px) {
+   border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+    padding : 12px ;
+  }
+  padding: 25px ;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+`;
 
 function Memory() {
+  const [memories, setMemories] = useState([]);
+
+  useEffect(() => {
+    fetch('https://gist.githubusercontent.com/prathamesh424/6679fbd960285e8bd12015a78130b76e/raw/HackathonClub.json') 
+      .then((response) => response.json())
+      .then((data) => {
+        setMemories(data.HackathonClub.memories); 
+      })
+      .catch((error) => {
+        console.error('Error fetching JSON:', error);
+      });
+  }, []);
+
   return (
     <Container id="Memories">
       <Title>Memories</Title>
@@ -82,7 +111,7 @@ function Memory() {
         effect={'coverflow'}
         grabCursor={true}
         centeredSlides={true}
-        loop={true}   
+        loop={true}
         slidesPerView={'auto'}
         coverflowEffect={{
           rotate: 0,
@@ -99,36 +128,14 @@ function Memory() {
         modules={[EffectCoverflow, Pagination, Navigation]}
         className="swiper_container"
       >
-        <SwiperSlide>
-          <Effect>
-            <Image src={ img1} alt="slide_image" />
-          </Effect>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Effect>
-            <Image src={img6} alt="slide_image" />
-          </Effect>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Effect>
-            <Image src={img2} alt="slide_image" />
-          </Effect>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Effect>
-            <Image src={img3} alt="slide_image" />
-          </Effect>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Effect>
-            <Image src={img4} alt="slide_image" />
-          </Effect>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Effect>
-            <Image src={img5} alt="slide_image" />
-          </Effect>
-        </SwiperSlide>
+        {memories.map((memory, index) => (
+          <SwiperSlide key={index}>
+            <Effect>
+              <Image src={memory.image} alt={memory.alt} />
+              <Caption>{memory.title}</Caption>
+            </Effect>
+          </SwiperSlide>
+        ))}
         <div className="slider-controler">
           <div className="swiper-button-prev slider-arrow">
             <ion-icon name="arrow-back-outline"></ion-icon>
@@ -139,7 +146,6 @@ function Memory() {
           <div className="swiper-pagination"></div>
         </div>
       </Swiper>
-      
     </Container>
   );
 }

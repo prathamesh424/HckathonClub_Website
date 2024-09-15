@@ -1,12 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import TeamCard from '../cards/TeamCard';
-import rg from '../images/Rahul.png';
-import pg from '../images/prathamesh.png';
-import ag from '../images/aditya.png' ; 
-import sg from '../images/siddharth.png';
-import shg from '../images/sushil.png'
-
 
 const Container = styled.div`
     display: flex ;
@@ -43,7 +37,7 @@ const Title = styled.div`
     @media (max-width : 960px){
         font-size: 42px ;}
 `;  
- 
+
 const CardContainer = styled.div`
     display: flex ;
     justify-content: center; 
@@ -51,55 +45,43 @@ const CardContainer = styled.div`
     gap: 28px ;
     flex-wrap: wrap;
 `;
+
 const Team = () => {
-    const leader  = {
-        image: rg , 
-        name: 'Rahul Gawade', 
-        role : 'President', 
-    }
-    const member1  = {
-        image: sg , 
-        name: 'Siddharth Basale', 
-        role : 'Vice President' 
-        
-    }
-    const member2  = {
-        image: ag , 
-        name: 'Aditya Bhavar', 
-        role : 'Technical Head' 
-    }
-    const member3  = {
-        
-        image: pg , 
-        name: 'Prathamesh Gursal', 
-        role : 'Management Head' 
-    }
-    const member4  = {
-        image: shg , 
-        name: 'Sushil Phadtare', 
-        role : 'Socialmedia Head' 
+    const [teamData, setTeamData] = useState(null);
+
+    useEffect(() => {
+        fetch('https://gist.githubusercontent.com/prathamesh424/6679fbd960285e8bd12015a78130b76e/raw/HackathonClub.json') 
+        .then((response) => response.json())
+        .then((data) => {
+            setTeamData(data.HackathonClub.team); 
+        })
+        .catch((error) => {
+            console.error('Error fetching JSON:', error);
+        });
+    }, []);
+
+    if (!teamData) {
+        return <div>Loading...</div>; 
     }
 
-  return (
-    <Container id="Team">
-        <Title>Team</Title>
-        <Wrapper>
-            <CardContainer>
-                <TeamCard member={leader}/>
-            </CardContainer>
-        </Wrapper>
+    return (
+        <Container id="Team">
+            <Title>Team</Title>
+            <Wrapper>
+                <CardContainer>
+                    <TeamCard member={teamData.leader} />
+                </CardContainer>
+            </Wrapper>
 
-        <Wrapper>
-            <CardContainer>
-                 <TeamCard member={member1}/>
-                 <TeamCard member={member2}/>
-                 <TeamCard member={member3}/>
-                 <TeamCard member={member4}/>
-            </CardContainer>
-        </Wrapper>
-    </Container>
-  )
+            <Wrapper>
+                <CardContainer>
+                    {teamData.members.map((member, index) => (
+                        <TeamCard key={index} member={member} />
+                    ))}
+                </CardContainer>
+            </Wrapper>
+        </Container>
+    );
 }
 
-export default Team 
- 
+export default Team;

@@ -10,7 +10,7 @@ const Card = styled.div`
   flex-direction: column;
   gap: 14px;
   transition: all 0.5s ease-in-out;
-  background: rgba(255, 255, 255, 0.05); /* Adjust the color and opacity */
+  background: rgba(255, 255, 255, 0.05);  
   border-radius: 10px;
   box-shadow: 0 0 50px 4px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
